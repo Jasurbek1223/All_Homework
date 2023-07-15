@@ -58,7 +58,6 @@
                     Console.WriteLine("Mavjud bo'lmagan amal kiritildi, tekshirib qaytadan kiriting!\n");
                     goto abs;
                 }
-
                 
             // SONLIKGA TEKSHIRADI HAMMA-HOLATDA ISHLASHI UCHUN
             vvv:
