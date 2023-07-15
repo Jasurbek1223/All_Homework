@@ -69,8 +69,11 @@
                 Console.WriteLine("Xato bajargan testlaringiz:\n");
                 for (int i = 0; i < wrongAnswers.Length; i += 2)
                 {
-                    Console.WriteLine(wrongAnswers[i]);
-                    Console.WriteLine($"True answer is: {wrongAnswers[i + 1]}" + "\n");
+                    if (wrongAnswers[i].Length != 0)
+                    {
+                        Console.WriteLine(wrongAnswers[i]);
+                        Console.WriteLine("True answer: " + wrongAnswers[i + 1] + "\n");
+                    }
                 }
             }
         }
