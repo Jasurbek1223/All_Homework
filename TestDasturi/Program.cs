@@ -73,6 +73,7 @@
                     {
                         Console.WriteLine(wrongAnswers[i]);
                         Console.WriteLine("True answer: " + wrongAnswers[i + 1] + "\n");
+
                     }
                 }
             }
