@@ -89,20 +89,25 @@
                     }
                 }
                 int son2 = int.Parse(num2);
-
-                if (command[0] == '*' && command.Length == 1)
-                    result = son1 * son2;
-                else if (command[0] == '/' && command.Length == 1)
-                    result = son1 / son2;
-                else if (command[0] == '+' && command.Length == 1)
-                    result = son1 + son2;
-                else if (command[0] == '-' && command.Length == 1)
-                    result = son1 - son2;
-
-                Thread.Sleep(500);
-                Console.WriteLine("\nResult");
-                Console.WriteLine($"{num1} {command} {num2} = {result}\n");
-                //This is comment!
+                try
+                {
+                    if (command[0] == '*' && command.Length == 1)
+                        result = son1 * son2;
+                    else if (command[0] == '/' && command.Length == 1)
+                        result = son1 / son2;
+                    else if (command[0] == '+' && command.Length == 1)
+                        result = son1 + son2;
+                    else if (command[0] == '-' && command.Length == 1)
+                        result = son1 - son2;
+                    Thread.Sleep(500);
+                    Console.WriteLine("\nResult");
+                    Console.WriteLine($"{num1} {command} {num2} = {result}\n");
+                    //This is comment!
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
     }
