@@ -7,7 +7,7 @@ namespace N6_HT2
         static void Main(string[] args)
         {
             string[] name = { "Xalqaro xotin-qizlar kuni", "O'qituvchi va murabbiylar kuni", "Konstitutsiya bayrami", "Xotira va qadrlash kuni", "Yangi yil bayrami", "Navro'z bayrami", "Mustaqillik kuni", "Amir-Temur tavalludi", "Alisher Navoiy tavalludi", "Tug'ulgan kunim" };
-            string[] dateTime = { "2023-03-08", "2023-10-01", "2023-12-08", "2023-05-09", "2023-12-31", "2023-03-21", "2023-09-01", "2023-04-09", "2023-02-14", "2002-12-23" };
+            string[] dateTime = { "2023-03-08", "2023-10-01", "2023-12-08", "2023-05-09", "2023-12-31", "2023-03-21", "2023-09-01", "1336-04-09", "1441-02-14", "2002-12-23" };
             var today = DateTime.Now;
 
         aaa:
@@ -154,9 +154,9 @@ namespace N6_HT2
                                                         }
                                                     }
                                                 }
-                                                foreach (string s in dateTime)
+                                                for (int i = 0; i < name.Length; i++)
                                                 {
-                                                    Console.WriteLine(s);
+                                                    Console.WriteLine($"{dateTime[i]} - {name[i]}");
                                                 }
                                             }
                                             Console.WriteLine();
@@ -209,26 +209,17 @@ namespace N6_HT2
                         string top = Console.ReadLine();
                         try
                         {
-                            if (!string.IsNullOrEmpty(top))
+                            int temp1 = 0;
+                            for (int i = 0; i < dateTime.Length; i++)
                             {
-                                int temp1 = 0;
-                                for (int i = 0; i < dateTime.Length; i++)
+                                if (DateTime.Parse(top).Month == DateTime.Parse(dateTime[i]).Month && DateTime.Parse(top).Day == DateTime.Parse(dateTime[i]).Day)
                                 {
-                                    if (DateTime.Parse(top).Month == DateTime.Parse(dateTime[i]).Month && DateTime.Parse(top).Day == DateTime.Parse(dateTime[i]).Day)
-                                    {
-                                        Console.WriteLine($"{dateTime[i]} {name[i]}");
-                                        temp1 = 1;
-                                    }
+                                    Console.WriteLine($"{dateTime[i]} {name[i]}");
+                                    temp1 = 1;
                                 }
-                                if (temp1 == 0)
-                                    Console.WriteLine("Bunday sanada bayram yoq!\n");
                             }
-                            else
-                            {
-                                Console.WriteLine("Xato kiritildi!\n Qaytadan kiriting!");
-                                goto kkk;
-
-                            }
+                            if (temp1 == 0)
+                                Console.WriteLine("Bunday sanada bayram yoq!\n");
                         }
                         catch (Exception e)
                         {
