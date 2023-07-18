@@ -40,7 +40,7 @@
                         wrongAnswers[k + 1] = trueAnswers[i];
                         k += 2;
                     }
-                }
+                }   
                 else if (javob[0].ToString().ToUpper() == "B" && javob.Length == 1)
                 {
                     if (trueAnswers[i] == answers[i, 1])
