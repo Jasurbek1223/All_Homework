@@ -20,29 +20,29 @@ namespace N6_HT2
             {
                 case '1':
                     {
-                        vvv:
+                    vvv:
                         Console.WriteLine("Eventlarni saralash!");
                         Console.WriteLine("1-Nomi bo'yicha\n2-Vaqti bo'yicha\n3- Back");
                         char num = Console.ReadKey().KeyChar;
                         Console.WriteLine("\n");
                         Console.Clear();
 
-                        switch(num)
+                        switch (num)
                         {
                             case '1':
                                 {
-                                    abc:
+                                abc:
                                     Console.WriteLine("1-O'sish bo'yicha\n2-Kamayish bo'yicha\n3-Back");
                                     char num1 = Console.ReadKey().KeyChar;
                                     Console.Clear();
 
-                                    switch(num1)
+                                    switch (num1)
                                     {
                                         case '1':
                                             {
-                                               for(int i = 0;i<name.Length;i++)
+                                                for (int i = 0; i < name.Length; i++)
                                                 {
-                                                    for(int j = 0;j<dateTime.Length;j++)
+                                                    for (int j = 0; j < dateTime.Length; j++)
                                                     {
                                                         if (string.Compare(name[i], name[j]) == -1)
                                                         {
@@ -56,7 +56,7 @@ namespace N6_HT2
                                                         }
                                                     }
                                                 }
-                                               foreach(string s in name)
+                                                foreach (string s in name)
                                                 {
                                                     Console.WriteLine(s);
                                                 }
@@ -102,7 +102,7 @@ namespace N6_HT2
                                 }
                             case '2':
                                 {
-                                    //vaqt boyicha osish kamayish
+                                //vaqt boyicha osish kamayish
                                 // DateTime.Parse(dateTime[i]).DayOfYear
                                 abc:
                                     Console.WriteLine("1-O'sish bo'yicha\n2-Kamayish bo'yicha\n3-Back");
@@ -129,9 +129,9 @@ namespace N6_HT2
                                                         }
                                                     }
                                                 }
-                                                foreach (string s in dateTime)
+                                                for (int i = 0; i < name.Length; i++)
                                                 {
-                                                    Console.WriteLine(s);
+                                                    Console.WriteLine($"{dateTime[i]} - {name[i]}");
                                                 }
                                             }
                                             Console.WriteLine();
@@ -197,10 +197,10 @@ namespace N6_HT2
                                 temp = 1;
                             }
                         }
-                        if(temp == 0)
+                        if (temp == 0)
                             Console.WriteLine("Bunday bayram topilmadi!");
                     }
-                    Console.WriteLine() ;
+                    Console.WriteLine();
                     goto aaa;
                 case '3':
                     {
@@ -242,10 +242,9 @@ namespace N6_HT2
                         // kelayotgan eventlarni korsatish
                         int bugun = today.DayOfYear;
                         int[] sana = new int[10];
-                        for (int i = 0;i < 10;i++)
+                        for (int i = 0; i < 10; i++)
                         {
                             sana[i] = DateTime.Parse(dateTime[i]).DayOfYear;
-
                         }
                         for (int i = 0; i < name.Length; i++)
                         {
@@ -260,9 +259,9 @@ namespace N6_HT2
                             }
                         }
                         Console.WriteLine("Kelayotgan bayramlar");
-                        for (int j=0;j<sana.Length;j++)
+                        for (int j = 0; j < sana.Length; j++)
                         {
-                            if(today.DayOfYear < sana[j])
+                            if (today.DayOfYear < sana[j])
                             {
                                 for (int i = 0; i < dateTime.Length; i++)
                                 {
@@ -325,21 +324,7 @@ namespace N6_HT2
                         Console.WriteLine("Xato variant tanlandi!\nQaytadan tanlov kiriting!");
                         goto aaa;
                     }
-                    
-
             }
-
-
-
-
-
-
-
-
-
-
-
-
         }
     }
 }
