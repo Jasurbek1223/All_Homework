@@ -10,14 +10,13 @@ namespace Task
     {     
         public int Id { get; set; } 
         public string FullName { get; set; }
-        public int Age { get; set; }
+        public  DateTime BirthDay { get; set; }
         public decimal Payment { get; set; }
 
         public string EduType { get; set; }
             
-        /*public string GetStudent(string studentType)
-        {
+        public int GetAge() => DateTime.Now.Year - BirthDay.Year;
+     
 
-        }*/
     }
 }
