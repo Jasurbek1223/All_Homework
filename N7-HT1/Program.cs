@@ -4,10 +4,6 @@
     {
         static void Main(string[] args)
         {
-
-
-
-
             DateOnly[] fiveDays = new DateOnly[]
            {
                 new DateOnly(2023,07,16),
