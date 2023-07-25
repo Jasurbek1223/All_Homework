@@ -43,7 +43,7 @@ namespace N8_HT2_
             Console.WriteLine("Ro'yhatdan o'tish jarayoni\n");
             while (true)
             {
-                Console.Write("Ismingiznikiriting:");
+                Console.Write("Ismingizni kiriting:");
                 ism = Console.ReadLine();
                 if(string.IsNullOrEmpty(ism) || string.IsNullOrWhiteSpace(ism))
                 {
@@ -120,17 +120,6 @@ namespace N8_HT2_
                 }
                 Console.WriteLine();
             }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
