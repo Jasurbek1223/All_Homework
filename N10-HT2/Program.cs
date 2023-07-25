@@ -22,16 +22,12 @@ namespace N10_HT2
 
             if (isSuccessfulCheckout)
             {
-                Console.WriteLine("Maxsulot olib tashlandi!");
+                Console.WriteLine("Maxsulot Korzinkadan olib tashlandi!");
             }
             else
             {
                 Console.WriteLine("Unday maxsulot topilmadi!");
             }
-
-
-
-
 
 
         }
