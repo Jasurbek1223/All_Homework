@@ -14,16 +14,11 @@ internal class Program
         email.From = "johnDoe333@gmail.com"; // Valid Email
        // email.From = "s @@ .gmail.com";       // Invalid Email
 
-        email.Subject = "John Doe G'ishmat Toshmat, Bob"; // Valid Text
-        //email.Subject = "Toshmat"; // Invalid Text - 3 ta sozdan kopligi hisobga olingan
+        email.Subject = "John Doe G'ishmat Toshmat, Bob"; // Valid Subject
+        //email.Subject = "Toshmat"; // Invalid Subject - 3 ta sozdan kopligi hisobga olingan
 
-        email.Subject = "Hello World, lets C# Coding"; // Valid Text
-        email.Subject = "   "; // Invalid Text - 3 ta sozdan kopligi hisobga olingan
-
-
-
-
-
+        email.Content = "Hello World, lets C# Coding"; // Valid Content
+        email.Content = "   "; // Invalid Content - 3 ta sozdan kopligi hisobga olingan
 
 
     }
