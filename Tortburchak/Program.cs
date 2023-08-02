@@ -8,11 +8,11 @@ internal class Program
         int[] absissalar = new int[4];
         int[] ordinatalar = new int[4];
         var idx_a = 0; var idx_b = 0;
-        for(int i=0; i<8; i++)
+        for (int i = 0; i < 8; i++)
         {
-            if(i%2==0)
+            if (i % 2 == 0)
             {
-                Console.Write($"x{i/2}: ");
+                Console.Write($"x{i / 2}: ");
                 absissalar[idx_a] = int.Parse(Console.ReadLine());
                 idx_a++;
             }

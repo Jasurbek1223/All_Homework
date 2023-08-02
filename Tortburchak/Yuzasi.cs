@@ -9,14 +9,14 @@ public class Yuzasi
     public double Dio { get; set; }  //Dioganal
 
 
-    public Yuzasi(int[] xLar, int[] yLar) 
+    public Yuzasi(int[] xLar, int[] yLar)
     {
         if (!isTortburchak(xLar, yLar))
         {
             Console.WriteLine("Bu nuqtalardan to'rtburchak yasab bo'lmaydi!");
             Environment.Exit(0);
         }
-        
+
         A = Masofa(xLar[0], xLar[1], yLar[0], yLar[1]);
         B = Masofa(xLar[1], xLar[2], yLar[1], yLar[2]);
         C = Masofa(xLar[2], xLar[3], yLar[2], yLar[3]);
@@ -25,13 +25,13 @@ public class Yuzasi
         Dio = Masofa(xLar[1], xLar[3], yLar[1], yLar[3]);
     }
 
-    
+
 
     public bool isTortburchak(int[] xLar, int[] yLar)
     {
         var x = xLar.Distinct().Count();
         var y = yLar.Distinct().Count();
-        if (x <= 2 || y <= 2) 
+        if (x <= 2 || y <= 2)
             return false;
         return true;
     }
@@ -66,7 +66,7 @@ public class Yuzasi
 
     public double TArea
     {
-       get 
+        get
         {
             return Math.Round(Area1 + Area2, 2);
         }
