@@ -20,5 +20,6 @@ internal class Program
         smartHome.ExpectedTemperature = 25;
         smartHome.SetCurrentTemperature(21);
         smartHome.DisplayHomeTemperature();
+
     }
-}   
+}

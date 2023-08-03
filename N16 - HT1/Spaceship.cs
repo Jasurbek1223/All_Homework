@@ -5,7 +5,7 @@ internal class Spaceship
     public string Name { get; init; }
     public int Fuel { get; private set; }
     public int Speed { get; set; }
-    public string Trajectory { private get;  set; }
+    public string Trajectory { private get; set; }
 
     public Spaceship(string name, int fuel, int speed)
     {
@@ -16,7 +16,7 @@ internal class Spaceship
 
     public void UpdateFuel(int fuel)
     {
-        if(fuel < 0)
+        if (fuel < 0)
             Console.WriteLine("Yoqilg'i quyilmadi!");
         else
             Fuel += fuel;
@@ -35,16 +35,5 @@ internal class Spaceship
         Console.WriteLine($"Speed: {Speed}");
         Console.WriteLine($"Trajectory: {Trajectory}");
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
