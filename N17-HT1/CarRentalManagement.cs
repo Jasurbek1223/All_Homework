@@ -23,7 +23,6 @@ internal class CarRentalManagement
             car.IsRented = true;
             car.RentStartTime = DateTime.Now;
             Console.WriteLine($"Rented: {car}");
-           // await Task.Delay(5000);
             return car;
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace N17_HT1;
 
-internal class Audi : CarRental
+public sealed class Audi : CarRental
 {
     public Audi(int id)
         :base(id, "Audi")
