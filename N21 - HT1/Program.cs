@@ -34,7 +34,7 @@ internal class Program
         marketWithUzum.Add(phone);
 
         // Online marketdan sotib olish jarayoni
-        marketWithPayme.Buy("TV", kapitalCard, myCard);
+        marketWithPayme.Buy("Laptop", kapitalCard, myCard);
         marketWithUzum.Buy("Iphone15", milliyCard, myCard);
 
         //Console.WriteLine($"Kapital kartadagi balans: {kapitalCard.Balance}");
