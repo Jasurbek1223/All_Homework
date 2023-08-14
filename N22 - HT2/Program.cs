@@ -9,7 +9,7 @@ class Program
     {
         IReviewList<IReview> reviewList = new ReviewList<IReview>();
 
-        Review review1 = new Review { Id = 1, Star = 4, Message = "Good product" };
+        Review review1 = new Review { Id = 1, Star = 4, Message = "Good " };
         Review review2 = new Review { Id = 3, Star = 5, Message = "OK" };
         CrashReport report1 = new CrashReport { Id = 2, Star = 2, Message = "Not working", ScreenshotPath = "screenshot.jpg" };
         CrashReport report2 = new CrashReport { Id = 4, Star = 4, Message = "Bad", ScreenshotPath = "fayl.txt" };
