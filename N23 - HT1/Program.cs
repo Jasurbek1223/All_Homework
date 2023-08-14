@@ -10,20 +10,8 @@ internal class Program
 
         var son = new Prime();
 
-        //var orderDecendingNumbers = from s in numbers.Where(son.IsPrime) orderby s descending select s;
-
-        foreach(var tub  in from s in numbers.Where(son.IsPrime) orderby s descending select s)
-        {
+        foreach (var tub in from s in numbers.Where(son.IsPrime) orderby s descending select s)
             Console.WriteLine(tub);
-        }
-
-
-
-
-
-
-
-
 
     }
 }
