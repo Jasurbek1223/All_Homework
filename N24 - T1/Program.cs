@@ -1,4 +1,5 @@
 ﻿using N24___T1;
+using System.Threading.Channels;
 
 List<Team> teams = new List<Team>()
         {
@@ -22,8 +23,8 @@ List<Player> players = new List<Player>()
             new Player() { Id = 8, Name = "Myuller", TeamId = 4, Level = 84},
             new Player() { Id = 9, Name = "Bale", TeamId = 2, Level = 82},
             new Player() { Id = 10, Name = "Ismoilov", TeamId = 5, Level = 70},
-            new Player() { Id = 11, Name = "Shomurodov", TeamId = 2, Level = 78},
-            new Player() { Id = 12, Name = "Cherishev", TeamId = 2, Level = 78},
+            new Player() { Id = 11, Name = "Shomurodov", TeamId = 6, Level = 78},
+            new Player() { Id = 12, Name = "Cherishev", TeamId = 7, Level = 78},
             new Player() { Id = 13, Name = "Vafoyev", TeamId = 2, Level = 78},
             new Player() { Id = 14, Name = "Denisov", TeamId = 2, Level = 78},
             new Player() { Id = 15, Name = "Latipov", TeamId = 2, Level = 78},
@@ -82,19 +83,32 @@ List<Player> players = new List<Player>()
 //}
 
 //Join: 
-var res = teams.Join(players,
-    x => x.Id,
-    p => p.TeamId,
-    (x,p) => new { ClubName = x.ClubName, Name = p.Name, Level = p.Level}).OrderByDescending(k=> k.Level);
-res.ToList().ForEach(x =>Console.WriteLine($"Club: {x.ClubName.PadRight(15)}\t Name: {x.Name.PadRight(15)}\t {x.Level}"));
+//var res = teams.Join(players,
+//    x => x.Id,
+//    p => p.TeamId,
+//    (x,p) => new { ClubName = x.ClubName, Name = p.Name, Level = p.Level}).OrderByDescending(k=> k.Level);
+//res.ToList().ForEach(x =>Console.WriteLine($"Club: {x.ClubName.PadRight(15)}\t Name: {x.Name.PadRight(15)}\t {x.Level}"));
 
 //Aggregate: 
 
 
 
 //GroupBy: 
+var groupBy = teams.Join(players,
+    x => x.Id,
+    p => p.TeamId,
+    (x,p) => new {ClubName = x.ClubName, Name = p.Name, Level = p.Level}).GroupBy(x => x.ClubName);
+foreach(var group in groupBy)
+{
+    Console.WriteLine($"Komanda nomi: {group.Key}");
+
+    foreach(var item in group) Console.WriteLine(item.Name + ", " + item.Level);
+    Console.WriteLine();
+}
+
 
 //ToLookup:
+
 
 //GroupJoin: 
 
