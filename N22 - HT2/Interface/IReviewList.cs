@@ -10,3 +10,4 @@ public interface IReviewList<TReview> where TReview : IReview
     TReview GetReview(string message);
     string GetOverallReview();
 }
+                           
