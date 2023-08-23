@@ -15,5 +15,5 @@ var clonedList = (ClonableList<StorageFile>)clonableList.Clone();
 var firstItem = clonableList.First();
 firstItem.Description = "Other description ";
 
-// clone listni elementlarini chiqarish
+// elementlarini chiqarish
 clonedList.ForEach(Console.WriteLine);

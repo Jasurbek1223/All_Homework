@@ -4,5 +4,5 @@ namespace N25_HT1.Interface;
 
 public interface IPaymentService
 {
-    bool Checkout(double amount, DebitCard debitCard);
+    bool CheckOut(decimal amount, DebitCard debitCard);
 }

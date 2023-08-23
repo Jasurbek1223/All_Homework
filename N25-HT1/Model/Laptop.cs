@@ -1,13 +1,13 @@
-﻿namespace N25_HT1.Model;
+﻿using N25_HT1.Interface;
+
+namespace N25_HT1.Model;
 
 public class Laptop : IProduct
 {
-    // Laptop xususiyatlari
-    public string CpuBrand { get; set; }
-    public string CpuModel { get; set; }
+    public string cpuBoard { get; set; }
 
-    // IProduct interfeysining implementatsiyasi
-    public int Id { get; set; }
+    public string cpuBrend { get; set; }
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public bool IsOrdered { get; set; }

@@ -1,13 +1,13 @@
-﻿namespace N25_HT1.Model;
+﻿using N25_HT1.Interface;
+
+namespace N25_HT1.Model;
 
 public class Chair : IProduct
 {
-    // Chair xususiyatlari
-    public int MaxWeight { get; set; }
-    public string Material { get; set; }
+    public int maxWeight { get; set; }
 
-    // IProduct interfeysining implementatsiyasi
-    public int Id { get; set; }
+    public string material { get; set; }
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public bool IsOrdered { get; set; }

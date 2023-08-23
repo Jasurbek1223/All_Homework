@@ -2,8 +2,8 @@
 
 namespace N25_HT1.Interface;
 
-public interface IOrderService
+public interface IOrderServise
 {
-    IProduct Order(int id, DebitCard card);
-    List<IProduct> Order(ProductFilterModel filterModel, DebitCard card);
+    bool Order(int id, decimal debitCardBalance);
+    bool Order(string orderFilterModel, decimal debitCardBalance);
 }

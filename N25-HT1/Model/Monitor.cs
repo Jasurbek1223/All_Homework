@@ -1,13 +1,13 @@
-﻿namespace N25_HT1.Model;
+﻿using N25_HT1.Interface;
+
+namespace N25_HT1.Model;
 
 public class Monitor : IProduct
 {
-    // Monitor xususiyatlari
-    public double DisplaySize { get; set; }
-    public int RefreshRate { get; set; }
+    public int DisplaySize { get; set; }
 
-    // IProduct interfeysining implementatsiyasi
-    public int Id { get; set; }
+    public int Refreshrate { get; set; }
+    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public bool IsOrdered { get; set; }

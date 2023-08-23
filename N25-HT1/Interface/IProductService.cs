@@ -2,9 +2,14 @@
 
 namespace N25_HT1.Interface;
 
-public interface IProductService
+public interface IProductServise
 {
-    ICollection<IProduct> Inventory { get; }
+    List<IProduct> Inventory { get; }
     void Add(IProduct product);
-    ProductFilterDataModel GetFilterData();
+    ProductFilterDataModel GetFilterData(ProductFilterDataModel productFilter);
+
+    List<IProduct> Get(ProductFilterDataModel filterModel);
+
+    IProduct Oreder(Guid productId);
+
 }

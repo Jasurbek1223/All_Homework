@@ -3,24 +3,37 @@ using N25_HT1.Model;
 
 namespace N25_HT1.Service;
 
-public class ProductService : IProductService
+public class ProductServise : IProductServise
 {
-    public ICollection<IProduct> Inventory { get; private set; }
-
-    public ProductService()
-    {
-        Inventory = new List<IProduct>();
-    }
+    public List<IProduct> Inventory => throw new NotImplementedException();
 
     public void Add(IProduct product)
     {
         Inventory.Add(product);
     }
 
-    public ProductFilterDataModel GetFilterData()
+    public List<IProduct> Get(ProductFilterDataModel filterModel)
     {
-        var productTypes = Inventory.Select(item => item.GetType().FullName).Distinct();
-        var filterData = new ProductFilterDataModel { ProductTypes = productTypes };
-        return filterData;
+        var filter = Inventory.Where(item => filterModel.ProducTypes.Contains(item.GetType().Name)).ToList();
+        var products = new List<IProduct>(filter);
+        return products;
+    }
+
+    public ProductFilterDataModel GetFilterData(ProductFilterDataModel productFilter)
+    {
+        return new ProductFilterDataModel(Inventory);
+    }
+
+    public IProduct Oreder(Guid productId)
+    {
+        var order = Inventory.Find(item => item.Id == productId);
+        order.IsOrdered = true;
+        return order;
+    }
+    public IProduct Return(Guid productId)
+    {
+        var order = Inventory.Find(item => item.Id == productId);
+        order.IsOrdered = false;
+        return order;
     }
 }

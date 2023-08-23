@@ -15,13 +15,13 @@ public class StorageFile : ICloneable
         Size = size;
     }
 
-    public override string ToString()
-    {
-        return $"{Name} {Description} {Size}";
-    }
-
     public object Clone()
     {
         return new StorageFile(Name, Description, Size);
+    }
+
+    public override string ToString()
+    {
+        return $"{Name} {Description} {Size}";
     }
 }

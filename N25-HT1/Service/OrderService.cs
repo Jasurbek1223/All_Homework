@@ -3,54 +3,38 @@ using N25_HT1.Model;
 
 namespace N25_HT1.Service;
 
-public class OrderService : IOrderService
+public class OrderServise : IOrderServise // bu implement  qilish deyiladi
 {
-    private readonly IProductService _productService;
-    private readonly IPaymentService _paymentService;
-
-    public OrderService(IProductService productService, IPaymentService paymentService)
+    private readonly ProductServise _productServise;
+    private readonly IPaymentServise _paymentServise; //Composition qilish deyiladi
+    public OrderServise(ProductServise productServise, IPaymentServise paymentServise)
     {
-        _productService = productService;
-        _paymentService = paymentService;
+        _productServise = productServise;
+        _paymentServise = paymentServise;
     }
 
-    public IProduct Order(int id, DebitCard card)
+    public bool Order(Guid id, DebitCard debitCardBalance)
     {
-        IProduct product = _productService.Inventory.FirstOrDefault(p => p.Id == id);
-
-        if (product != null)
+        var product = _productServise.Oreder(id);
+        if (product == null)
         {
-            bool paymentSuccessful = _paymentService.Checkout(product.Price, card);
-
-            if (paymentSuccessful)
-            {
-                product.IsOrdered = true;
-                return product;
-            }
+            _productServise.Return(id);
+            return false;
         }
-
-        return null;
+        else
+        {
+            _paymentServise.CheckOut(product.Price, debitCardBalance);
+            return true;
+        }
     }
 
-    public List<IProduct> Order(ProductFilterModel filterModel, DebitCard card)
+    public bool Order(string orderFilterModel, decimal debitCardBalance)
     {
-        var filteredProducts = _productService.Inventory
-            .Where(p => p.Name.Contains(filterModel.Name) && p.GetType().FullName == filterModel.Type)
-            .ToList();
+        throw new NotImplementedException();
+    }
 
-        var orderedProducts = new List<IProduct>();
-
-        foreach (var product in filteredProducts)
-        {
-            bool paymentSuccessful = _paymentService.Checkout(product.Price, card);
-
-            if (paymentSuccessful)
-            {
-                product.IsOrdered = true;
-                orderedProducts.Add(product);
-            }
-        }
-
-        return orderedProducts;
+    public bool Order(int id, decimal debitCardBalance)
+    {
+        throw new NotImplementedException();
     }
 }
