@@ -12,4 +12,5 @@ public class Monitor : IProduct
     public string Description { get; set; }
     public bool IsOrdered { get; set; }
     public double Price { get; set; }
+    decimal IProduct.Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }

@@ -14,7 +14,7 @@ public class EmailService
         SmtpClientInstance.EnableSsl = true;
     }
 
-    public Task<bool> SendAsync(string receiverEmailAddress, string subject, string body)
+    public Task<bool> SendAsync(string receiverEmailAddress, string subject, string body, string fullName)
     {
         return Task.Run(async () =>
         {
@@ -27,7 +27,7 @@ public class EmailService
 
                 var mail = new MailMessage("sultonbek.rakhimov@gmail.com", receiverEmailAddress);
                 mail.Subject = subject;
-                mail.Body = body;
+                mail.Body = body.Replace("{{Employee}}", fullName);
 
                 await smtp.SendMailAsync(mail);
             }

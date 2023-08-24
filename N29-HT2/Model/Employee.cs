@@ -1,10 +1,20 @@
-﻿namespace N29_HT2.Model;
+﻿using System.Net.Mail;
+
+namespace N29_HT2.Model;
 
 public class Employee
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public string Email { get; set; }
+    public string EmailAddress { get; set; }
+
+    public Employee(string firstName, string lastName, string emailAddress)
+    {
+        Id = Guid.NewGuid();
+        FirstName = firstName;
+        LastName = lastName;
+        EmailAddress = emailAddress;
+    }
 }
 
