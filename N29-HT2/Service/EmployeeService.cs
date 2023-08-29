@@ -37,7 +37,7 @@ public class EmployeeService
             return res;
         });
 
-        //Confirmation email jo'natib bo'lingach Welcome on board emailin jo'natish
+        //Confirmation Emaili jo'natib bo'lingach Welcome on board Emailini jo'natish
         await firstEmailTask;
         var secondEmailTask = Task.Run(async () =>
         {
