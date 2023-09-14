@@ -1,50 +1,75 @@
-﻿using N36___HT3.Models;
+﻿using N36___HT3.Interface;
+using N36___HT3.Models;
+using System.IO;
 
 namespace N36___HT3.Services;
 
-public class UserService
+public class UserService : IUserService
 {
-    private List<User> users;
+    private readonly List<User> users;
 
     public UserService()
     {
         users = new List<User>();
     }
 
-    public void Create(User user)
+    User IUserService.Create(User user)
     {
+        User existUser = users.FirstOrDefault(m => m.Id.Equals(user.Id));
+
+        if (existUser != null)
+        {
+            throw new Exception("User already exists");
+        };
+
+        existUser.Id = user.Id;
+        existUser.FirstName = user.FirstName;
+        existUser.LastName = user.LastName;
+
         users.Add(user);
+
+        return existUser;
     }
 
-    public List<User> GetUsers()
+    public User GetById(Guid id)
+    {
+        User existUseer = users.FirstOrDefault(m => m.Id.Equals(id));
+
+        if (existUseer is null)
+            throw new Exception("User is not found");
+
+        return existUseer;
+    }
+
+    public IEnumerable<User> GetAll()
     {
         return users;
     }
 
-    public User GetUser(Guid id)
+    User IUserService.Update(User user)
     {
-        return users.FirstOrDefault(u => u.Id == id);
-    }
-
-    public void Update(User user)
-    {
-        var existUser = users.FirstOrDefault(u=>u.Id == user.Id);
+        var existUser = users.FirstOrDefault(u => u.Id == user.Id);
 
         if (existUser != null)
         {
             existUser.FirstName = user.FirstName;
             existUser.LastName = user.LastName;
         }
+
+        return existUser;
     }
 
-    public void Delete(Guid id)
+    bool IUserService.Delete(Guid id)
     {
         var existUser = users.FirstOrDefault(u => u.Id == id);
 
         if (existUser != null)
         {
             users.Remove(existUser);
+            return true;
         }
+
+        return false;
     }
 }
 

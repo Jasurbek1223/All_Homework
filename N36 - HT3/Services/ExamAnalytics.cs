@@ -2,8 +2,8 @@
 
 public class ExamAnalytics
 {
-    private UserService _userService;
-    private ExamScoreService _examScoreService;
+    private readonly UserService _userService;
+    private readonly ExamScoreService _examScoreService;
 
     public ExamAnalytics(UserService userService, ExamScoreService examScoreService)
     {
@@ -13,10 +13,10 @@ public class ExamAnalytics
 
     public IEnumerable<(string FullName, int Score)> GetScores()
     {
-        return _userService.GetUsers().Select(user =>
+        return _userService.GetAll().Select(user =>
         {
             var fullName = $"{user.FirstName} {user.LastName}";
-            var score = _examScoreService.GetExamScore(user.Id).Score;
+            var score = _examScoreService.GetById(user.Id).Score;
             return (fullName, score);
         });
     }

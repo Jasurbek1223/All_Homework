@@ -1,46 +1,74 @@
-﻿using N36___HT3.Models;
+﻿using N36___HT3.Interface;
+using N36___HT3.Models;
 
 namespace N36___HT3.Services;
 
-public class ExamScoreService
+public class ExamScoreService : IExamScoreService
 {
-    private List<ExamScore> examScores;
+
+    private readonly List<ExamScore> examServices;
+
     public ExamScoreService()
     {
-        examScores = new List<ExamScore>();
+        examServices = new List<ExamScore>();
     }
 
-    public void Create(ExamScore score)
+    public ExamScore Create(ExamScore examScore)
     {
-        examScores.Add(score);
-    }
-
-    public List<ExamScore> GetExamScores()
-    {
-        return examScores;
-    }
-
-    public ExamScore GetExamScore(Guid userId) => examScores.FirstOrDefault(score => score.UserId == userId);
-
-
-    public void Update(ExamScore score)
-    {
-        var existExamScore = examScores.FirstOrDefault(s => s.Id == score.Id);
+        ExamScore existExamScore = examServices.FirstOrDefault(m => m.Id.Equals(examScore.Id));
 
         if (existExamScore != null)
         {
-            existExamScore.UserId = score.UserId;
-            existExamScore.Score = score.Score;
+            throw new Exception("ExamScore already exists");
         }
+
+        existExamScore.Id = examScore.Id;
+        existExamScore.UserId = examScore.UserId;
+        existExamScore.Score = examScore.Score;
+
+        examServices.Add(examScore);
+
+        return existExamScore;
     }
 
-    public void Delete(Guid Id)
+    public bool Delete(Guid id)
     {
-        var existExamScore = GetExamScore(Id);
+        var existUser = examServices.FirstOrDefault(u => u.Id == id);
 
-        if(existExamScore != null)
+        if (existUser != null)
         {
-            examScores.Remove(existExamScore);
+            examServices.Remove(existUser);
+            return true;
         }
+
+        return false;
+    }
+
+    public IEnumerable<ExamScore> GetAll()
+    {
+        return examServices;
+    }
+
+    public ExamScore GetById(Guid id)
+    {
+        ExamScore existExam = examServices.FirstOrDefault(m => m.Id.Equals(id));
+
+        if (existExam is null)
+            throw new Exception("Exam is not found");
+
+        return existExam;
+    }
+
+    public ExamScore Update(ExamScore examScore)
+    {
+        ExamScore existExam = examServices.FirstOrDefault(u => u.Id == examScore.Id);
+
+        if (existExam != null)
+        {
+            existExam.UserId = examScore.UserId;
+            existExam.Score = examScore.Score;
+        }
+
+        return existExam;
     }
 }
