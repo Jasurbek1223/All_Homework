@@ -1,8 +1,6 @@
-﻿using System;
-using System.Net.Mail;
+﻿using N41___HT2.Service.Interfaces;
 using System.Net;
-using System.Threading.Tasks;
-using N41___HT2.Service.Interfaces;
+using System.Net.Mail;
 
 namespace N41___HT2.Service
 {
