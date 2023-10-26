@@ -1,6 +1,8 @@
-﻿namespace WebApplication3.Models.Profiles
+﻿namespace WebApplication3.Models.Profiles;
+public class UserProfile : Profile
 {
-    public class UserProfile
+    public UserProfile()
     {
+        CreateMap<UserDto, User>();
     }
 }

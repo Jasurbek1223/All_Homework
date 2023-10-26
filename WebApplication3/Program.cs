@@ -1,25 +1,11 @@
+using WebApplication1.Models.Entities;
+using WebApplication1.Services;
+using WebApplication1.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+var users = new List<User>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+    new User("Alice", "Johnson", "alice.j@example.com"),
+    new User("Bob", "Smith", "bob.smith@mailbox.net"),
+    new User("Emily", "Davis", "emily.d@example.net"),
